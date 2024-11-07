@@ -31,7 +31,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string()
     .required("Password is required")
     .min(8, "Password must be at least 8 characters")
-    .matches(/[!@#$%^&*-_]/, "Password must contain at least one special character"),
+    .matches(/[!@#$%^&*(),.?":{}|<>=\-_]/, "Password must contain at least one special character"),
 });
 
 function CreateAccountPage() {
@@ -74,7 +74,7 @@ function CreateAccountPage() {
     !formik.values.password;
 
   const hasMinLength = formik.values.password.length >= 8;
-  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(formik.values.password);
+  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>=\-_]/.test(formik.values.password);
 
   return (
     <form

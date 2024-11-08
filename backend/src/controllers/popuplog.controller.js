@@ -1,6 +1,5 @@
 const popupService = require("../service/popuplog.service.js");
-const { internalServerError } = require("../utils/errors.js");
-const {validationResult} = require('express-validator')
+const { internalServerError } = require("../utils/errors.helper.js");
 const db = require("../models/index.js");
 const PopupLog = db.PopupLog;
 
